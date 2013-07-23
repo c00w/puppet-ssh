@@ -1,6 +1,7 @@
 class ssh {
-    package {"sshd":
-        ensure  => latest
+    package {"openssh-server":
+        ensure  => latest,
+        alias   => "ssh"
     }
 
     service {"ssh":
