@@ -1,7 +1,6 @@
 class ssh {
     package {"openssh-server":
         ensure  => latest,
-        alias   => "ssh"
     }
 
     service {"ssh":
@@ -17,5 +16,6 @@ class ssh {
         mode    => 0600,
         notify  => Service['ssh']
     }
-    Package["ssh"] -> Service["ssh"]
+
+    Package["openssh-server"] -> Service["ssh"]
 }
